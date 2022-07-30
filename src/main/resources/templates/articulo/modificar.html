@@ -11,10 +11,10 @@
 
         <div class="contenido">
             <h2 th:text="#{articulo.datos}">Datos Articulo</h2>
-            <a th:href="@{/articulo/listado}" th:text="#{accion.regresar}">Regresar</a>
+            <a th:href="@{/}" th:text="#{accion.regresar}">Regresar</a>
             <br/>
             <br/>
-            <form th:action="@{/articulo/guardar}"
+            <form th:action="@{/producto/guardar}"
                   method="post"
                   th:object="${articulo}">
                 <input type="hidden" name="idArticulo" th:field="*{idArticulo}" />

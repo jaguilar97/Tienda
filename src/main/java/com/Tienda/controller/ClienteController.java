@@ -18,11 +18,17 @@ public class ClienteController {
     private ClienteService clienteService;
     
     @GetMapping("/cliente/listado")
-    public String inicio(Model model){
-        
+    public String inicio(Model model) {
         var clientes=clienteService.getClientes();
-        model.addAttribute("clientes", clientes);
         
+        var limiteTotal=0;
+        for (var c: clientes) {
+            limiteTotal+=c.getCredito().getLimite();
+        }
+        model.addAttribute("limiteTotal",limiteTotal);
+        model.addAttribute("totalClientes",clientes.size());
+        
+        model.addAttribute("clientes",clientes);
         return "/cliente/listado";
     }
     
